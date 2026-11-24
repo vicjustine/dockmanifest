@@ -1,0 +1,23 @@
+name: Release
+
+on: 
+  workflow_dispatch:
+    inputs:
+      bump: 
+        description: Which part of the version to raise
+        required: true
+        default: patch
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          
+jobs: 
+  call-release:
+    uses: ./.github/workflows/release-package.yml
+    with:
+      bump: ${{ inputs.bump }}
+      python-version: '3.12'
+    permissions: 
+      contents: write
