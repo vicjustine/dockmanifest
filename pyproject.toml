@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dockmanifest"
+version = "0.1.0"
+description = "Build and validate dock loading manifests for freight terminals"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+dockmanifest = "dockmanifest.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
